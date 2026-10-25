@@ -98,3 +98,17 @@ details p { margin: 0 0 16px; }
   .steps, .features { grid-template-columns: 1fr; }
   section { padding: 40px 0; }
 }
+
+/* Two example cards in the hero: a real dog in front, the cat behind. */
+.cards { position: relative; display: grid; justify-items: center; }
+.cards .card { grid-area: 1 / 1; width: min(380px, 100%); margin: 0; }
+.card-front { transform: rotate(2deg) translate(40px, 30px); z-index: 1; }
+.card-back { transform: rotate(-5deg) translate(-50px, -10px); opacity: 0.9; }
+.card .photo { display: block; width: 100%; height: auto; border-radius: 20px; }
+.card .logo img { width: 16px; height: 16px; border-radius: 4px; }
+
+@media (max-width: 760px) {
+  .cards { gap: 24px; }
+  .cards .card { grid-area: auto; transform: none; opacity: 1; }
+  .card-back { order: 2; }
+}
